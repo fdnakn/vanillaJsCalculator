@@ -3,25 +3,24 @@ const hesapla = document.getElementById("hesapla");
 const toplama = document.getElementById("toplama");
 const nums = document.querySelectorAll(".sayilar button");
 
-let birinciDeger = 0;
+let sayi1 = "";
 
 
 nums.forEach(num => {
-    num.addEventListener('click', () => {
-        myinput.value += num.textContent;
-        birinciDeger = +myinput.value;
+    num.addEventListener("click", () => {
+        myinput.value +=  +num.textContent;
+        
     })
 })
 
+toplama.addEventListener("click",()=>{
+    sayi1 = myinput.value;
+    myinput.value="";
+})
 
-toplama.addEventListener('click', () => {
-    myinput.value = "";
-    hesaplamaFunc();
+hesapla.addEventListener("click",()=>{
+    myinput.value = +sayi1 + +myinput.value ;
+    console.log(myinput)
 })
 
 
-function hesaplamaFunc() {
-    hesapla.addEventListener('click', () => {
-        myinput.value = birinciDeger*2;
-    })
-}
